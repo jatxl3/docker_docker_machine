@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y curl wget linux-headers-generic linux-headers-`uname -r`-generic linux-headers-`uname -r` build-essential dkms && \
+RUN apt-get update && apt-get install -y curl wget linux-headers-generic linux-headers-`uname -r` linux-headers-`basename $(uname -r) -generic` build-essential dkms && \
     echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" >> /etc/apt/sources.list && \
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add - && \
     apt-get update && \
